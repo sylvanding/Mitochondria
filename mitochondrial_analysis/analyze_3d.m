@@ -159,7 +159,7 @@ save(filename35,'vol','vol_full','lengths','widths','blank_skel','minsz','thresh
 
 
 
-filename3=[filename,'_isolated','.tif']; % Specify the output file name
+filename3=[filename,'_binarized','.tif']; % Specify the output file name
 [~,~,d]=size(cell_img);
 for idx = 1:d
     %[A,map] = rgb2ind(temp2(:,:,:,idx),256);
@@ -171,7 +171,7 @@ for idx = 1:d
 end
 
 
-filename4=[filename,'_binary2','.tif']; % Specify the output file name
+filename4=[filename,'_skeletonized','.tif']; % Specify the output file name
 [~,~,d]=size(cell_img);
 for idx = 1:d
     %[A,map] = rgb2ind(temp2(:,:,:,idx),256);
@@ -181,7 +181,7 @@ for idx = 1:d
         imwrite(uint8(blank_skel(:,:,idx)),filename4,'WriteMode','append');
     end
 end
-filename4=[filename,'_binaryfin','.tif']; % Specify the output file name
+filename4=[filename,'_no_background','.tif']; % Specify the output file name
 [~,~,d]=size(cell_img);
 for idx = 1:d
     %[A,map] = rgb2ind(temp2(:,:,:,idx),256);
