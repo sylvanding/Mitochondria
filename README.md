@@ -1,7 +1,7 @@
 # Mitochondria
 This document contains the analysis described in the paper: Quantifying nanoscopic alterations associated with mitochondrial dysfunctions using three-dimensional single-molecule localization microscopy. All code is written in MatLab
 
-The code consists of 4 folders
+The code consists of 3 folders
 
 Mitochondrial analysis:
 Contains main script, "analyze_3d.m" and all dependent functions, as well as sample data. The sample data consists of
