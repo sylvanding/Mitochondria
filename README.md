@@ -52,13 +52,21 @@ They should then identify roughly the x- and y-coordinates of the maximum.
 For example, if the x-coordinate of the maximum is between 200 and 280 and the y coordinate is between 18880 and 2020, they should enter the following in the command line:
 
 TR1(:,3) = (TR1(:,3))-32*yshift;
+
 TR1(:,4) = (TR1(:,4))-32*xshift;
+
 [row,column] = find(hey1==max(max(hey1(1880:2020,200:280))));
+
 yshift = row-ceil(sz1);
+
 xshift = column-ceil(sz2);
+
 TR1(:,3) = (TR1(:,3))+32*yshift;
+
 TR1(:,4) = (TR1(:,4))+32*xshift;
 
+
 figure; plot(TR0(1:round(length(x0)/60000):length(x0),3),TR0(1:(round(length(x0)/60000)):(length(x0)),4),'.','markersize',.01)
+
 hold on; plot(TR1(1:60000,3),TR1(1:60000,4),'.','markersize',.01)
 
