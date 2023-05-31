@@ -49,7 +49,7 @@ The user should then type the following commands in the command prompt:
 They should then find the point of maximum correlation, which should look like a symmetric local maximum.
 They should then identify roughly the x- and y-coordinates of the maximum.
 
-For example, if the x-coordinate of the maximum is between 200 and 280 and the y coordinate is between 18880 and 2020, they should enter the following in the command line:
+For example, if the x-coordinate of the maximum is between 200 and 280 and the y coordinate is between 1880 and 2020, they should enter the following in the command line:
 
 TR1(:,3) = (TR1(:,3))-32*yshift;
 
@@ -70,3 +70,5 @@ figure; plot(TR0(1:round(length(x0)/60000):length(x0),3),TR0(1:(round(length(x0)
 
 hold on; plot(TR1(1:60000,3),TR1(1:60000,4),'.','markersize',.01)
 
+Simulation:
+Contains main script, "call_mito.m" and all dependent functions. Simulates mitochondrial images with various parameters for the user to change.
