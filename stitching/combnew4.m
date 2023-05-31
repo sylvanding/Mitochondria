@@ -1,3 +1,17 @@
+%The goal is to create a single image from multiple overlapping images in cases where the mitochondrial network is larger than the imaging system field of view. As inputs, the script takes a list of filenames of csv files from analysis of SMLM datasets on thunderSTORM. The user must define the variable "changing" which is a corresponding list of the relative axial objective positions in each csv file. If all data was acquired at the same focus, "changing" should just be a list of zeros. As an output, the code saves a csv file made from combining all csv files.
+%The code also plots a graph of points from two stitched images. If the stitching does not look correct, the user should put a break point at the line "figure; imagesc(hey1)"
+%at the line The user should then type the following commands in the command prompt: "figure; imagesc(hey1)" They should then find the point of maximum correlation, which should look like a symmetric local maximum. They should then identify roughly the x- and y-coordinates of the maximum.
+%For example, if the x-coordinate of the maximum is between 200 and 280 and the y coordinate is between 1880 and 2020, they should enter the following in the command line (without the % symbols):
+%TR1(:,3) = (TR1(:,3))-32*yshift;
+%TR1(:,4) = (TR1(:,4))-32*xshift;
+%[row,column] = find(hey1==max(max(hey1(1880:2020,200:280))));
+%yshift = row-ceil(sz1);
+%xshift = column-ceil(sz2);
+%TR1(:,3) = (TR1(:,3))+32*yshift;
+%TR1(:,4) = (TR1(:,4))+32*xshift;
+%figure; plot(TR0(1:round(length(x0)/60000):length(x0),3),TR0(1:(round(length(x0)/60000)):(length(x0)),4),'.','markersize',.01)
+%hold on; plot(TR1(1:60000,3),TR1(1:60000,4),'.','markersize',.01)
+
 fnam=[{'untreated_9_min0_1'};{'untreated_9_min500_1'};{'untreated_9_min0_2'};{'untreated_9_min500_2'};{'untreated_9_min500_3'}]
 changing=[0,-500,0,-500,-500];
 savefile = 'untreated_9_fin.csv';
