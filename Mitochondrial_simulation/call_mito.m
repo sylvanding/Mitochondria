@@ -1,3 +1,6 @@
+%Simulates mitochondrial images with various parameters for the user to change.
+
+
 for k=1:1
 simnames={'simulated_normal_1'; 'simulated_normal_2';'simulated_normal_3'; 'simulated_normal_4';'simulated_normal_5'; 'simulated_normal_6';'simulated_normal_7'; 'simulated_normal_8';'simulated_normal_9'; 'simulated_normal_10';'simulated_normal_11'; 'simulated_normal_12';'simulated_normal_13'; 'simulated_normal_14';'simulated_normal_15'; 'simulated_normal_16';'simulated_normal_17'; 'simulated_normal_18';'simulated_normal_19'; 'simulated_normal_20'; 'simulated_normal_21';; 'simulated_normal_22'};
 gtnames={'gt_normal_fin1'; 'gt_normal_fin2';'gt_normal_fin3'; 'gt_normal_fin4';'gt_normal_fin5'; 'gt_normal_fin6';'gt_normal_fin7'; 'gt_normal_fin8';'gt_normal_fin9'; 'gt_normal_fin10';'gt_normal_fin11'; 'gt_normal_fin12';'gt_normal_fin13'; 'gt_normal_fin14';'gt_normal_fin15'; 'gt_normal_fin16';'gt_normal_fin17'; 'gt_normal_fin18';'gt_normal_fin19'; 'gt_normal_fin20'; 'gt_normal_fin21'; 'gt_normal_fin22'};
