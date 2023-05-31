@@ -17,5 +17,22 @@ Finally, you may need to change the variables "thresh_fact" and "thresh_fact_sli
 
 The second is called "Masked frame __" where __ is the central frame of the 3D data. It shows a slice of 3D data after binarization. This image should match with the corresponding frame of your tiff file. If there is too much included, the variable "thresh_fact_slice" should be lowered. If there is too little, the variable "thresh_fact_slice" should be raised.
 
+The code has a mat file output and three tiff stack outputs.
 
+The mat contains the following variables
+vol: A list of volumes of each mitochondrion in cubic microns.
+vol_ful: The volume of the full mitochondrial network in cubic microns.
+lengths: A list of lengths of each mitochondrion in microns.
+widths: A list of widths of each mitochondrion in microns.
+blank_skel: A tiff stack showing a binarized mitochondrial skeleton
+minsz: The user input value for minimum mitochondrioon area in pixels
+thresh: The user input value for threshhold.
+
+
+The tiff outputs are:
+The mitochondrial skeleton
+A binarized image of the mitochondria
+A non-binarized image of the mitochondria with background subtraction.
+
+All three tiffs should be reviewed to ensure that the mitochondria were processed correctly.
 
