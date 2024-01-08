@@ -79,7 +79,9 @@ end
         end
     end
     
-    boundary_inv=1-boundary2;
+    se=strel('disk',1);
+    boundary3=imdilate(boundary2,se);
+    boundary_inv=1-boundary3;
 
     final=orig.*uint8(boundary_inv);
     %%
