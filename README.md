@@ -53,7 +53,7 @@ You may also need to change CL_Dilationz to accound for image distortions induce
 
 Finally, you may need to change the variables "thresh_fact" and "thresh_fact_slice". These variables are the factor by which the threshhold of the 2D image is multiplied and the factor by which threshhold of the 3D image is multiplied, respectively. In the course of running the analysis code, two images will be displayed. The first is called "Sum of masked frames", which shows the sum of the binzarized 3D image slices multiplied by the binarized 2D projection image. If this image excludes mitochondria, "thresh_fact" may be too high. If it includes background "thresh_fact" may be too low.
 
-The second is called "Masked frame __" where __ is the central frame of the 3D data. It shows a slice of 3D data after binarization. This image should match with the corresponding frame of your tiff file. If there is background included, the variable "thresh_fact_slice" should be lowered. If there is too little, the variable "thresh_fact_slice" should be raised.
+The second is called "Masked frame __" where __ is the central frame of the 3D data. It shows a slice of 3D data after binarization. This image should match with the corresponding frame of your tiff file. If there is background included, the variable "thresh_fact_slice" should be raised. If there is too little signal, the variable "thresh_fact_slice" should be lowered.
 
 The code has a mat file output and three tiff stack outputs.
 
