@@ -2,7 +2,9 @@
 This repository contains the analysis described in the paper: Quantifying nanoscopic alterations associated with mitochondrial dysfunction using three-dimensional single-molecule localization microscopy. 
 
 The repository consists of 3 folders
+
 Automated segmentation:
+
 Instructions for automated segmentation:
 
 1. Download the file 'temporal-Color_Code1' and place it in the FIJI/imagej folder in the file path 'fiji-win64\Fiji.app\plugins\Scripts\Image\Hyperstacks'
