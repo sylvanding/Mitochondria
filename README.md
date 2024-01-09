@@ -72,3 +72,22 @@ hold on; plot(TR1(1:60000,3),TR1(1:60000,4),'.','markersize',.01)
 
 Simulation:
 Contains main script, "call_mito.m" and all dependent functions. Simulates mitochondrial images with various parameters for the user to change.
+
+Automated segmentation:
+Download the file 'temporal-Color_Code1' and place it in the FIJI/imagej folder in the file path 'fiji-win64\Fiji.app\plugins\Scripts\Image\Hyperstacks'
+Open your 3D super-resolution image in Thunderstorm in FIJI
+In THUNDERSTORM: Results, click "Plot histogram" and select the 'z' parameter
+Select the region with the high signal and click "Apply ROI to filter"
+In THUNDERSTORM: Results, click 'Apply'
+In THUNDERSTORM: Results, click visualization
+Make sure the '3D' option is checked. Click 'Auto size by results' and click 'OK'
+Save the image stack as a tiff
+In FIJI select 'Image'>'Hyperstack'>'Temporal-Color_Code1
+Save the image as [your file name]_segmented.tif
+Run the '[your file name]_segmented' through mitochondria_segmentation.ipynb and save the output numpy file to your working matlab folder
+Download all .m files and save them to your working matlab folder
+Download the tif and the zipped file. Extract them
+Open 'make_boundary_auto.m' If you are using your own data, change line 1 to your 3d stack filename
+run the code.
+Open '[your file name]_segmented.tif in FIJI. If the code missed any boundaries between mitochondria, select the pencil tool and a line thickness of '2' and go over the image manually
+Proceed to the mitochondrial analysis folder
