@@ -2,17 +2,22 @@ clear;
 filename='untreated_9'; %Name of 3d tiff
 filename2='untreated_9_segmented'; %Name of 2d segmented tiff
 px=.032; %pixel size in um
-thresh_fact=.75; %Factor by which the threshhold of the 2D image is multiplied (lower if "Sum of masked frames" excludes mitochondria. Raise if it includes background)
+thresh_fact=1; %Factor by which the threshhold of the 2D image is multiplied (lower if "Sum of masked frames" excludes mitochondria. Raise if it includes background)
 thresh_fact_slice=1/8; %Factor by which threshhold of the 3D image is multiplied (lower if "Masked frame __" excludes mitochondria. Raise if it includes background)
 CL_Dilationx=.8743; %the dilation factor in the x-direction 
 CL_Dilationz=1.3889; %The dilation factor in the z-direction (Huang et. al)
+
 cell_img=SPLMload([filename,'.tif'],'tiff');
 [y,x,z]=size(cell_img);
 [Y,X,Z] = (meshgrid(1:1:x,1:1:y,1:1:z));
 [Yq,Xq,Zq] = meshgrid(CL_Dilationx:CL_Dilationx:x,1:y,CL_Dilationz:CL_Dilationz:z);
 cell_img=interp3(Y,X,Z,double(cell_img),Yq,Xq,Zq);
+norme=double(max(max(max(cell_img))));
+cell_img=255*(double(cell_img)./norme);
 cell_img=uint8(cell_img);
 cell_img2=SPLMload([filename2,'.tif'],'tiff');
+norm2=double(max(max(cell_img2)));
+cell_img2=255*(double(cell_img2)./norm2);
 [y2,x2]=size(cell_img2);
 [Y2,X2] = meshgrid(1:1:x2,1:1:y2);
 [Yq2,Xq2] = meshgrid(CL_Dilationx:CL_Dilationx:x2,1:y2);
