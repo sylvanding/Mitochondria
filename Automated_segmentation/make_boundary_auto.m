@@ -1,4 +1,4 @@
-filename='mito_uncut_conf_17';
+filename='untreated_9';
 b = readNPY([filename,'.npy']);
 orig=imread([filename,'.tif']);
 b2=permute(b,[2,3,1]);
