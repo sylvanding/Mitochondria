@@ -75,8 +75,11 @@ thresh: The user input value for threshhold.
 
 
 The tiff outputs are:
+
 The mitochondrial skeleton
+
 A binarized image of the mitochondria
+
 An 8-bit image of the mitochondria with background subtraction.
 
 All three tiffs should be reviewed to ensure that the mitochondria were processed correctly.
