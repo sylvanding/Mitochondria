@@ -63,7 +63,7 @@ vol_ful: The volume of the full mitochondrial network in cubic microns.
 lengths: A list of lengths of each mitochondrion in microns.
 widths: A list of widths of each mitochondrion in microns.
 blank_skel: A tiff stack showing a binarized mitochondrial skeleton
-minsz: The user input value for minimum mitochondrioon area in pixels
+minsz: The user input value for minimum mitochondrion area in pixels
 thresh: The user input value for threshhold.
 
 
