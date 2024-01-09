@@ -1,32 +1,26 @@
-%The goal is to extract morphological parameters from 3D mitochondria images. The sample data consists of "untreated_2.tif", which is a tiff stack of a fluorescent microscopy image captured using 3D SMLM with a pixel size of 25x25x25 nm and "untreated_2_segmented.tif" which is a 2D projection of the former image that has been manually segmented using the marker tool in Fiji imageJ.
-
-%The code is ready to run as is. To analyze your own samples, you need to change the variables "filename" and "filename2" to the names of your 3d and 2d segmented tiff images, respectively. You may also need to change px to match your data's pixel size in nm. You may need to change CL_Dilationx to account for image distortions induced in the x-direction by the cylindrical lens. This can be measured by taking an image of a resolution chart or nanohole array and measuring any unilateral difference in size with and without the cylindrical lens in the detection path. If the image becomes smaller after insertion of the cylindrical lens in the x-direction, CL_Dilationx should be <1. It is calculated by S_CL/S_nCL, where S_CL is the distance between two features in the x-direction with the cylindrical lens, and S_nCL is the distance between the same features without the cylindrical lens.
-%You may also need to change CL_Dilationz to accound for image distortions induced in the z-direction by the refractive index mismatch. The method for calculating this factor is described in the supplementary materials of Huang B, Wang W, Bates M, Zhuang X. Three-dimensional super-resolution imaging by stochastic optical reconstruction microscopy. Science. 2008 Feb 8;319(5864):810-3. doi: 10.1126/science.1153529. Epub 2008 Jan 3. PMID: 18174397; PMCID: PMC2633023.
-%Finally, you may need to change the variables "thresh_fact" and "thresh_fact_slice". These variables are the factor by which the threshhold of the 2D image is multiplied and the factor by which threshhold of the 3D image is multiplied, respectively. In the course of running the analysis code, two images will be displayed. The first is called "Sum of masked frames", which shows the sum of the binzarized 3D image slices multiplied by the binarized 2D projection image. If this image excludes mitochondria, "thresh_fact" may be too high. If it includes background "thresh_fact" may be too low.
-%The second is called "Masked frame __" where __ is the central frame of the 3D data. It shows a slice of 3D data after binarization. This image should match with the corresponding frame of your tiff file. If there is too much included, the variable "thresh_fact_slice" should be lowered. If there is too little, the variable "thresh_fact_slice" should be raised.
-%The code has a mat file output and three tiff stack outputs.
-%The mat contains the following variables vol: A list of volumes of each mitochondrion in cubic microns. vol_ful: The volume of the full mitochondrial network in cubic microns. lengths: A list of lengths of each mitochondrion in microns. widths: A list of widths of each mitochondrion in microns. blank_skel: A tiff stack showing a binarized mitochondrial skeleton minsz: The user input value for minimum mitochondrioon area in pixels thresh: The user input value for threshhold.
-%The tiff outputs are: The mitochondrial skeleton A binarized image of the mitochondria An 8-bit image of the mitochondria with background subtraction.
-%All three tiffs should be reviewed to ensure that the mitochondria were processed correctly.
-
 clear;
-filename='Untreated_2'; %Name of 3d tiff
-filename2='Untreated_2_segmeted'; %Name of 2d segmented tiff
-px=.025; %pixel size in um
-thresh_fact=1.5; %Factor by which the threshhold of the 2D image is multiplied (lower if "Sum of masked frames" excludes mitochondria. Raise if it includes background)
+filename='untreated_9'; %Name of 3d tiff
+filename2='untreated_9_segmented'; %Name of 2d segmented tiff
+px=.032; %pixel size in um
+thresh_fact=1; %Factor by which the threshhold of the 2D image is multiplied (lower if "Sum of masked frames" excludes mitochondria. Raise if it includes background)
 thresh_fact_slice=1/8; %Factor by which threshhold of the 3D image is multiplied (lower if "Masked frame __" excludes mitochondria. Raise if it includes background)
 CL_Dilationx=.8743; %the dilation factor in the x-direction 
 CL_Dilationz=1.3889; %The dilation factor in the z-direction (Huang et. al)
+
 cell_img=SPLMload([filename,'.tif'],'tiff');
 [y,x,z]=size(cell_img);
 [Y,X,Z] = (meshgrid(1:1:x,1:1:y,1:1:z));
-[Yq,Xq,Zq] = meshgrid(.8743:.8743:x,1:y,1.3889:1.3889:z);
+[Yq,Xq,Zq] = meshgrid(CL_Dilationx:CL_Dilationx:x,1:y,CL_Dilationz:CL_Dilationz:z);
 cell_img=interp3(Y,X,Z,double(cell_img),Yq,Xq,Zq);
+norme=double(max(max(max(cell_img))));
+cell_img=255*(double(cell_img)./norme);
 cell_img=uint8(cell_img);
 cell_img2=SPLMload([filename2,'.tif'],'tiff');
+norm2=double(max(max(cell_img2)));
+cell_img2=255*(double(cell_img2)./norm2);
 [y2,x2]=size(cell_img2);
 [Y2,X2] = meshgrid(1:1:x2,1:1:y2);
-[Yq2,Xq2] = meshgrid(.8743:.8743:x2,1:y2);
+[Yq2,Xq2] = meshgrid(CL_Dilationx:CL_Dilationx:x2,1:y2);
 cell_img2=interp2(Y2,X2,double(cell_img2),Yq2,Xq2);
 [cell_img,cell_img2]=im_shift((cell_img),cell_img2);
 %%
