@@ -27,7 +27,7 @@ Instructions for automated segmentation:
 
 10. Save the image as [your file name]_segmented.tif
 
-11. Run the '[your file name]_segmented' through mitochondria_segmentation.ipynb and save the output numpy file to your working matlab folder (Before running this ipynb, you need to have pytorch https://pytorch.org/, ultralytics https://docs.ultralytics.com/quickstart/ and facebook SAM model https://github.com/facebookresearch/segment-anything installed)
+11. Run the '[your file name]_segmented' through mitochondria_segmentation.ipynb and save the output numpy file to your working matlab folder (Before running this ipynb, you need to have pytorch https://pytorch.org/, ultralytics https://docs.ultralytics.com/quickstart/ and facebook SAM model https://github.com/facebookresearch/segment-anything installed. Additionally, you will need to put the facebook SAM model checkpoint provided here https://github.com/facebookresearch/segment-anything?tab=readme-ov-file#model-checkpoints to the same folder as mitochondira_segmentation.ipynb )
 
 12. Download all .m files and save them to your working matlab folder
 
