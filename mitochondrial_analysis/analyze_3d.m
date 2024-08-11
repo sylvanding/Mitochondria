@@ -136,7 +136,7 @@ for n=1:objects.NumObjects
     indices=find(blank);
     [x2,y2,z2]=ind2sub([x,y,z],indices);
    
-    if length(unique(z2))<6
+    if length(unique(z2))<((6*.032)/px)
        continue 
     end
     for n2=1:size(blank,3)
