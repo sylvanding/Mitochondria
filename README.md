@@ -42,6 +42,8 @@ Instructions for automated segmentation:
 17. Proceed to the mitochondrial analysis folder
 
 Mitochondrial analysis:
+Install the dependencies [here](https://www.openmicroscopy.org/bio-formats/downloads/) in order to open .nd2 files on MATLAB. Unzip the `bf-matlab` files and place it in the same folder as the code.
+
 Contains main script, "analyze_3d.m" and all dependent functions, as well as sample data. The goal is to extract morphological parameters from 3D mitochondria images. The sample data consists of
   "untreated_9.tif", which is a tiff stack of a fluorescent microscopy image captured using 3D SMLM with a pixel size of 25x25x25 nm
   and "untreated_9_segmented.tif" which is a 2D projection of the former image that has been automatically segmented using our neural network and then further segmented using the marker tool in in Fiji imageJ.
