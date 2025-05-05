@@ -1,4 +1,9 @@
 # Mitochondria
+
+Use `Mitochondrial_simulation/generate_mito_points.m` to generate the mito points.
+
+---
+
 This repository contains the analysis described in the paper: Quantifying nanoscopic alterations associated with mitochondrial dysfunction using three-dimensional single-molecule localization microscopy. 
 
 The repository consists of 3 folders
