@@ -30,5 +30,11 @@ codegen/
 # Octave session info
 octave-workspace
 
-# 忽略所有mito_points文件夹
+# 忽略所有数据文件
 Mitochondrial_simulation/mito_points/*
+stitching/*.csv
+mitochondrial_analysis/*.tif
+mitochondrial_analysis/*.tif.zip
+Automated_segmentation/*.tif
+Automated_segmentation/*.pt
+Automated_segmentation/*.zip
