@@ -26,7 +26,7 @@ for k = 1:num_iterations
     mito_length = 1.0; %um
     heterogeneity = 1; %Heterogeneity of mitochondria sizes; scales from 0 to 1
     numChains = 12; %number of mitochondria
-    target_point_count = 16384; % target number of points
+    % target_point_count = 16384; % target number of points
     % dissociation = 0;
     % --- 参数定义结束 ---
 
