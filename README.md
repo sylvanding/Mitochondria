@@ -1,6 +1,6 @@
 # Mitochondria
 
-Use `Mitochondrial_simulation/generate_mito_points.m` to generate the mito points.
+Use `Mitochondrial_simulation/generate_mito_points2.m` to generate the mito points.
 
 ---
 
