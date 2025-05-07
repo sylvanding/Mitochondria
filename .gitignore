@@ -38,3 +38,4 @@ mitochondrial_analysis/*.tif.zip
 Automated_segmentation/*.tif
 Automated_segmentation/*.pt
 Automated_segmentation/*.zip
+outputs/*
